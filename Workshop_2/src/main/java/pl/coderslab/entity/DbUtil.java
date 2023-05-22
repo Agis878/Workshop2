@@ -1,4 +1,4 @@
-package org.example;
+package pl.coderslab.entity;
 
 import java.sql.*;
 
@@ -27,7 +27,7 @@ public class DbUtil {
     public static void printData(Connection conn, String query, String... columnNames) throws SQLException {
 
         try (PreparedStatement statement = conn.prepareStatement(query);
-             ResultSet resultSet = statement.executeQuery();) {
+             ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 for (String columnName : columnNames) {
                     System.out.println(resultSet.getString(columnName));
